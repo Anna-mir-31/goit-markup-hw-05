@@ -640,150 +640,212 @@ img {
 .footer-subscribe-icon {
   fill: #2e2f42;
 }
+/* --- Фон модального окна (оверлей) --- */
 .modal {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5); /* Затемнение фона */
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* --- Контейнер модального окна --- */
 .modal-content {
-  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 408px;
-  height: 584px;
-  padding: 24px;
+  min-height: 584px;
+  background: #fcfcfc;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  position: relative;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
-    0 2px 1px 0 rgba(0, 0, 0, 0.2);
+  padding: 72px 24px 24px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* --- Кнопка закрытия --- */
+/* --- Кнопка закрытия модального окна --- */
 .modal-close {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 24px;
+  right: 24px;
   width: 24px;
   height: 24px;
-  border: 2px solid rgba(0, 0, 0, 0.14);
-  background-color: #e7e9fc;
-  background-color: var(--dairy);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #e7e9fc;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  padding: 0;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* --- Заголовок формы --- */
+/* --- Стили для иконки крестика внутри кнопки --- */
+.modal-close svg {
+  width: 8px;
+  height: 8px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Ховер и фокус для кнопки закрытия --- */
+.modal-close:hover,
+.modal-close:focus {
+  background-color: #404bbf;
+  border: none;
+}
+
+.modal-close:hover svg,
+.modal-close:focus svg {
+  fill: #ffffff;
+}
+
+/* --- Заголовок модального окна --- */
 .modal-title {
-  text-align: center;
-  font-size: 16px;
   font-weight: 500;
-  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
   letter-spacing: 0.02em;
-  line-height: 150%;
-  margin-top: 24px;
+  color: #2e2f42;
+  margin-bottom: 16px;
 }
 
-/* --- Основные стили для формы --- */
+/* --- Общий стиль формы --- */
 .modal-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
 }
 
+/* --- Поля формы --- */
 .modal-label {
   font-size: 12px;
-  font-weight: 400;
-  color: #8e8f99;
-  line-height: 117%;
+  line-height: 1.17;
   letter-spacing: 0.04em;
+  color: #8e8f99;
+  display: block;
+  margin-bottom: 4px;
 }
 
-/* --- Контейнер для инпута с иконкой --- */
+/* --- Контейнер для инпутов с иконками --- */
 .input-wrapper {
   position: relative;
-  display: flex;
-  align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 8px;
-  background: #fff;
-  width: 360px;
-  height: 40px;
-  margin: 8 8 24 24;
-}
-.input-wrapper:hover,
-.input-wrapper:focus-within {
-  border-color: #4d5ae5;
+  width: 100%;
 }
 
-/* --- Иконка внутри инпута --- */
+/* --- Иконки внутри инпутов --- */
 .input-icon {
   position: absolute;
   left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 18px;
-  height: 18px;
+  height: 24px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
   fill: #2e2f42;
-}
-.input-wrapper:focus-within .input-icon {
-  fill: #4d5ae5;
 }
 
 /* --- Инпуты --- */
 .modal-input {
-  flex: 1;
-  padding: 8px 12px 8px 36px; /* Отступ слева, чтобы иконка не перекрывала текст */
-  border: none;
-  outline: none;
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px;
+  background-color: transparent;
+  padding-left: 38px;
   font-size: 14px;
+  outline: none;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Фокус на инпуте --- */
+.modal-input:focus {
+  border-color: #4d5ae5;
+}
+
+/* --- Фокус на иконке при активном инпуте --- */
+.modal-input:focus + .input-icon {
+  fill: #4d5ae5;
 }
 
 /* --- Текстовое поле (textarea) --- */
 .modal-textarea {
   width: 100%;
   height: 120px;
-  width: 360px;
-  padding: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 4px;
-  resize: none;
+  background-color: transparent;
+  padding: 8px 16px;
   font-size: 14px;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 117%;
-  letter-spacing: 0.04em;
+  resize: none;
+  outline: none;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .modal-textarea:focus {
   border-color: #4d5ae5;
-  outline: none;
 }
+
 /* --- Чекбокс с соглашением --- */
 .modal-checkbox {
   display: flex;
   align-items: center;
-  color: #8e8f99;
-  font-weight: 400;
   font-size: 12px;
-  line-height: 117%;
-  letter-spacing: 0.04em;
+  color: #8e8f99;
 }
 
+/* --- Скрытие стандартного чекбокса --- */
 .modal-checkbox input {
-  margin-right: 8px;
+  display: none;
 }
 
+/* --- Кастомный чекбокс --- */
+.modal-checkbox span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 2px;
+  background-color: transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Иконка галочки внутри чекбокса --- */
+.modal-checkbox span svg {
+  width: 10px;
+  height: 8px;
+  fill: transparent;
+}
+
+/* --- Активный чекбокс --- */
+.modal-checkbox input:checked + span {
+  background-color: #404bbf;
+  border: none;
+}
+
+.modal-checkbox input:checked + .custom-checkbox svg {
+  fill: #f4f4fd;
+}
+
+/* --- Ссылка на политику конфиденциальности --- */
 .privacy-policy {
   color: #4d5ae5;
   text-decoration: none;
+  margin-left: 8px;
 }
 
 .privacy-policy:hover {
@@ -792,23 +854,17 @@ img {
 
 /* --- Кнопка отправки формы --- */
 .modal-submit {
-  width: 169px;
+  display: block;
+  min-width: 169px;
   height: 56px;
-  padding: 12px;
   background: #4d5ae5;
-  color: #fff;
-  font-weight: 500;
+  color: #ffffff;
   font-size: 16px;
-  line-height: 150%;
-  letter-spacing: 0.04em;
-  text-align: center;
+  font-weight: 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background 0.3s ease;
-  margin: 0 auto;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
-    0 2px 1px 0 rgba(0, 0, 0, 0.2);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-submit:hover {
