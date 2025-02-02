@@ -579,3 +579,238 @@ img {
   transform: translateY(1px);
   fill: var(--some-variable, #f4f4fd);
 }
+.footer-subscribe {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.footer-subscribe-title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.footer-subscribe-form {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-subscribe-input {
+  width: 264px;
+  height: 40px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 400;
+  border-radius: 4px;
+  border: 1px solid #ffffff;
+  background-color: transparent;
+  color: #ffffff;
+}
+
+.footer-subscribe-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-subscribe-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 165px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #4d5ae5;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-subscribe-button:hover,
+.footer-subscribe-button:focus {
+  background-color: #31d0aa;
+}
+
+.footer-subscribe-icon {
+  fill: #2e2f42;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Затемнение фона */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  width: 408px;
+  height: 584px;
+  padding: 24px;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
+    0 2px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* --- Кнопка закрытия --- */
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(0, 0, 0, 0.14);
+  background-color: #e7e9fc;
+  background-color: var(--dairy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* --- Заголовок формы --- */
+.modal-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+  line-height: 150%;
+  margin-top: 24px;
+}
+
+/* --- Основные стили для формы --- */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-label {
+  font-size: 12px;
+  font-weight: 400;
+  color: #8e8f99;
+  line-height: 117%;
+  letter-spacing: 0.04em;
+}
+
+/* --- Контейнер для инпута с иконкой --- */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  background: #fff;
+  width: 360px;
+  height: 40px;
+  margin: 8 8 24 24;
+}
+.input-wrapper:hover,
+.input-wrapper:focus-within {
+  border-color: #4d5ae5;
+}
+
+/* --- Иконка внутри инпута --- */
+.input-icon {
+  position: absolute;
+  left: 16px;
+  width: 18px;
+  height: 18px;
+  fill: #2e2f42;
+}
+.input-wrapper:focus-within .input-icon {
+  fill: #4d5ae5;
+}
+
+/* --- Инпуты --- */
+.modal-input {
+  flex: 1;
+  padding: 8px 12px 8px 36px; /* Отступ слева, чтобы иконка не перекрывала текст */
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* --- Текстовое поле (textarea) --- */
+.modal-textarea {
+  width: 100%;
+  height: 120px;
+  width: 360px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+  font-size: 14px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 117%;
+  letter-spacing: 0.04em;
+}
+.modal-textarea:focus {
+  border-color: #4d5ae5;
+  outline: none;
+}
+/* --- Чекбокс с соглашением --- */
+.modal-checkbox {
+  display: flex;
+  align-items: center;
+  color: #8e8f99;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 117%;
+  letter-spacing: 0.04em;
+}
+
+.modal-checkbox input {
+  margin-right: 8px;
+}
+
+.privacy-policy {
+  color: #4d5ae5;
+  text-decoration: none;
+}
+
+.privacy-policy:hover {
+  text-decoration: underline;
+}
+
+/* --- Кнопка отправки формы --- */
+.modal-submit {
+  width: 169px;
+  height: 56px;
+  padding: 12px;
+  background: #4d5ae5;
+  color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin: 0 auto;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
+    0 2px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.modal-submit:hover {
+  background: #404bbf;
+}
