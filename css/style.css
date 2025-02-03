@@ -607,12 +607,22 @@ img {
   font-weight: 400;
   border-radius: 4px;
   border: 1px solid #ffffff;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  padding-left: 16px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   background-color: transparent;
   color: #ffffff;
 }
+.label-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
 
 .footer-subscribe-input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: #ffffff;
 }
 
 .footer-subscribe-button {
@@ -630,6 +640,9 @@ img {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 165px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
 }
 
 .footer-subscribe-button:hover,
@@ -639,6 +652,7 @@ img {
 
 .footer-subscribe-icon {
   fill: #2e2f42;
+  margin-left: 16px;
 }
 /* --- Фон модального окна (оверлей) --- */
 .modal {
@@ -690,13 +704,6 @@ img {
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* --- Стили для иконки крестика внутри кнопки --- */
-.modal-close svg {
-  width: 8px;
-  height: 8px;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 /* --- Ховер и фокус для кнопки закрытия --- */
 .modal-close:hover,
 .modal-close:focus {
@@ -725,6 +732,9 @@ img {
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+.modal-input-container {
+  margin-bottom: 8px;
 }
 
 /* --- Поля формы --- */
@@ -838,7 +848,7 @@ img {
 }
 
 .modal-checkbox input:checked + .custom-checkbox svg {
-  fill: #f4f4fd;
+  fill: #f4f4fd; /* Галочка становится белой */
 }
 
 /* --- Ссылка на политику конфиденциальности --- */
