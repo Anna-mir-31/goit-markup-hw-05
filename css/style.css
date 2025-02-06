@@ -858,6 +858,7 @@ img {
   cursor: pointer;
   gap: 8px;
   position: relative;
+  flex-wrap: wrap;
 }
 
 /* --- Скрытие стандартного чекбокса --- */
@@ -867,17 +868,10 @@ img {
   width: 0;
   height: 0;
 }
-/* --- Скрываем стандартный чекбокс --- */
-.modal-checkbox-input {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
 
 /* --- Кастомный чекбокс (обертка) --- */
 .checkmark {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 16px;
@@ -885,8 +879,12 @@ img {
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 2px;
   background-color: transparent;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  ttransition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  fill: transparent;
+  pointer-events: none;
+  margin: 0 auto;
 }
 
 /* --- Иконка галочки внутри чекбокса --- */
@@ -897,15 +895,14 @@ img {
   opacity: 0;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-/* --- Активный чекбокс (когда он нажат) --- */
-.modal-checkbox-input:checked + .checkmark {
+#user-privacy:checked + .modal-checkbox .checkmark {
   background-color: #404bbf;
   border: none;
 }
-.modal-checkbox-input:checked + .checkmark .checkmark-icon {
-  opacity: 1; /* Галочка появляется */
+#user-privacy:checked + .modal-checkbox .checkmark .checkmark-icon {
+  opacity: 1;
 }
+
 /* --- Ссылка на политику конфиденциальности --- */
 .privacy-policy {
   color: #4d5ae5;
@@ -923,6 +920,7 @@ img {
 
 /* --- Кнопка отправки формы --- */
 .modal-submit {
+  font-family: "Roboto", sans-serif;
   min-width: 169px;
   display: block;
   height: 56px;
@@ -935,14 +933,8 @@ img {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 24px auto 0;
-  padding: 16px 32px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  margin-top: 16px;
-  margin-bottom: 24px;
+  margin: 0 auto;
 }
 .modal-submit:hover {
   background: #404bbf;
